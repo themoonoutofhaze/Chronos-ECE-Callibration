@@ -297,7 +297,7 @@ def compute_metrics_path(
     model_name = model.split("/")[-1]
 
     # Compute the name
-    results_path = Path(__file__).parent() / "Results"
+    results_path = Path(__file__).parent/ "Results"
     if mode == "consistency":
         file_name = (
             f"{model_name}_std_{std:.2f}_npert_{n_pert}_{mode}".replace(".", "_")
@@ -615,6 +615,7 @@ def plot_time_series(
         plt.title(f"Time Series {i+1} - Dataset {dataset_name}", fontsize=25)
         plt.xlabel("Timesteps", fontsize=23)
         plt.ylabel("Value", fontsize=23)
+        plt.tick_params(axis='both', labelsize=20)
         plt.legend(loc="lower left", fontsize=20)
         plt.tight_layout()
         plt.show()
@@ -1156,7 +1157,7 @@ def main(
         )
 
         # Create the folder "Results" if it's not there
-        results_path = Path(__file__).parent() / "Results"
+        results_path = Path(__file__).parent/ "Results"
 
         os.makedirs(results_path, exist_ok=True)
 
